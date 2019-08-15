@@ -103,3 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 ~$算法.docx
+/.vscode
+.vscode/
+.vscode/settings.json

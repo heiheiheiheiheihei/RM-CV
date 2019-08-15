@@ -57,7 +57,7 @@ while ():
         break
 
 
-img = cv2.imread("test.png")
+img = cv2.imread("./TestImage/test.png")
 cv2.imshow("src", img)
 b, g, r = cv2.split(img)
 img = cv2.subtract(b, r)  # B - R
