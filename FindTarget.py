@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 
 img = cv2.imread("./TestImage/test.png")
-# cv2.imshow("src", img)
+cv2.imshow("src", img)
 Light = []
 
 
@@ -13,11 +13,10 @@ def findLight():
     b, g, r = cv2.split(img)
     br = cv2.subtract(b, r)  # B - R
     brg = cv2.subtract(br, g)  # BR - G
-    # 灰度处理,二值化
-    ret, img2 = cv2.threshold(brg, 50, 255, cv2.THRESH_BINARY)
-    # 寻找连通矩形
-    img2, contours, hierarchy = cv2.findContours(
-        img2, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    
+    ret, img2 = cv2.threshold(brg, 50, 255, cv2.THRESH_BINARY) # 图像二值化
+    
+    img2, contours, hierarchy = cv2.findContours(img2, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) # 寻找连通矩形
     n = 0
     cv2.drawContours(img, contours, -1, (255, 255, 0), 3)
     cv2.imshow("src", img)
