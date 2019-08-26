@@ -12,7 +12,7 @@ sightY = 245
 while(True):
     timeStamp = time.time()
     # ret, img = cam.read()  # 获取一帧图像
-    img = cv2.imread("..TestImage/fang.png")
+    img = cv2.imread("./TestImage/fang.png")
     print("获取一帧图像:" + str(time.time() - timeStamp))
     blueImg, greenImg, redImg = cv2.split(img)  # 分离图像的RGB通道
     img2 = cv2.subtract(blueImg, redImg)  # B通道-R通道
@@ -22,7 +22,7 @@ while(True):
     print("二值化:" + str(time.time() - timeStamp))
     # img2 = cv2.morphologyEx(img2, cv2.MORPH_OPEN, kernel)  # 开运算
     # img2 = cv2.dilate(img2, kernel）        #膨胀处理
-    img2, contours, hierarchy = cv2.findContours(
+    contours, hierarchy = cv2.findContours(
         img2, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)  # 获取轮廓
     print("找轮廓:" + str(time.time() - timeStamp))
     # cv2.drawContours(img, contours, -1, (0, 0, 255), 2)  # 在原始图像上绘制轮廓以进行显示
@@ -98,12 +98,6 @@ while(True):
                     disCalcCache = dis[count]
         print(disCalcCache)
     timeStamp = time.time() - timeStamp
-    # fpsCalc = int(100 / timeStamp) / 100.0
-    #cv2.putText(img2, str(timeStamp), (0, 30),cv2.FONT_HERSHEY_TRIPLEX, 0.5, (255, 255, 255), 1, 4)
-    #cv2.putText(img2, str(fpsCalc), (0, 50),cv2.FONT_HERSHEY_TRIPLEX, 0.5, (255, 255, 255), 1, 4)
-    #cv2.putText(img2, 'FPS MAX', (50, 50),cv2.FONT_HERSHEY_TRIPLEX, 0.5, (255, 255, 255), 1, 4)
-    # cv2.imshow('raw', img)
-    # cv2.imshow('ter', img2)  # 进行显示
     print("总耗时" + str(timeStamp))
     if cv2.waitKey(1) == ord('1'):
         break
