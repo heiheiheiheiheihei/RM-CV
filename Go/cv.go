@@ -12,6 +12,9 @@ func say(s string) {
         }
 }
 
+func fib(n){
+        if n<2
+}
 func main() {
         go say("world")
         say("hello")
