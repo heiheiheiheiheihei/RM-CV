@@ -5,17 +5,16 @@ import (
         "time"
 )
 
-func say(s string) {
-        for i := 0; i < 5; i++ {
-                time.Sleep(100 * time.Millisecond)
-                fmt.Println(s)
+func fib(n int) (res int) {
+        if n<2{
+                res = 1
+        } else if n>=2{
+                res = fib(n-2) + fib(n-1)
         }
-}
-
-func fib(n){
-        if n<2
+        return
 }
 func main() {
-        go say("world")
-        say("hello")
+        timetemp := time.Now()
+        fmt.Println(fib(50))
+        fmt.Println(time.Now().Sub(timetemp))
 }
