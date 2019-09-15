@@ -1,21 +1,23 @@
-#include "stdio.h"
-#include "windows.h"
-#include "time.h"
-
-void main(void)
+#include<stdio.h>
+unsigned long Fact(unsigned int n);
+int main()
 {
-	unsigned long FeNl[40], count = 1;
-	double timeStamp;
-	clock_t checkPoint = clock();
-
-	FeNl[0] = FeNl[1] = 1;
-	printf("1: 1\n2: 1\n");
-	while (++count < 40)
-	{
-		FeNl[count] = FeNl[count - 1] + FeNl[count - 2];
-		printf("%d: %d\n", count + 1, FeNl[count]);
-	}
-	timeStamp = (double)(clock() - checkPoint) / CLOCKS_PER_SEC;
-	printf("\n ¡¤ ÔËËãºÄÊ±£º%.3fÃë\n", timeStamp);
-	system("Pause");
+	int m,k;
+	unsigned long p;
+	do{
+		printf("Input m,k (m>=k>0):");
+		scanf("%d,%d",&m,&k);
+	}while(m<k||m<=0||k<0);
+	p=Fact(m)/(Fact(k)*Fact(m-k));
+	printf("p=%lu\n",p);
+	scanf("%d",&m);
+	return 0;
+}
+unsigned long Fact(unsigned int n)
+{
+	unsigned int i;
+    unsigned long result=1;
+	for(i=2;i<=n;i++)
+		result *=i;
+	return result;
 }
