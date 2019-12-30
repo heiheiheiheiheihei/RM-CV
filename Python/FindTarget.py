@@ -4,7 +4,7 @@ import numpy as np
 
 import cv2
 
-img = cv2.imread("./TestImage/test.png")
+img = cv2.imread("../TestImage/test.png")
 cv2.imshow("src", img)
 Light = []
 
